@@ -11,10 +11,10 @@ namespace ReadFromText
         //this is the path to the file
         private string filePath;
         /// <summary>
-        /// 
+        /// this method loads a file of your choice
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">the object that makes the call</param>
+        /// <param name="e">the event argument</param>
         private void btnLoadFile_Click(object sender, EventArgs e)
         {
             try
@@ -30,9 +30,9 @@ namespace ReadFromText
             }
         }
         /// <summary>
-        /// 
+        /// this method just handles error messages
         /// </summary>
-        /// <param name="ex"></param>
+        /// <param name="ex">the exception type that has been called</param>
         private void ErrorHandler(Exception ex)
         {
             MessageBox.Show($"you have encountered a {ex}", "Error Message",
@@ -40,10 +40,10 @@ namespace ReadFromText
         }
 
         /// <summary>
-        /// 
+        /// this method well it handles everything
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">the object that makes the call</param>
+        /// <param name="e">the event argument</param>
         private void btnReadAndProcessFile_Click(object sender, EventArgs e)
         {
             try
