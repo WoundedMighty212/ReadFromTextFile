@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace ReadFromText
 {
     public partial class TextFileCounter : Form
@@ -44,7 +46,63 @@ namespace ReadFromText
         /// <param name="e"></param>
         private void btnReadAndProcessFile_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                try
+                {
+                    var Start = DateTime.Now;
+                    string line = File.ReadAllText(filePath);
+                    lbResults.Text = line;
+                    Regex regex = new Regex("[^a-zA-Z0-9]");
+                    line = regex.Replace(line, " ");
+                    var wordCount = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    wordCount = wordCount.Where(w => !string.IsNullOrWhiteSpace(w)).ToArray();
+                    rbCountLines.Text = $"Lines in File: {File.ReadAllText(filePath).Count() + 1}" +
+                        $"{Environment.NewLine}words in file: {wordCount.Count() + 1}";
+                    Dictionary<string, int> frequancies = new Dictionary<string, int>();
+                    foreach (string word in wordCount)
+                    {
+                        if (frequancies.ContainsKey(word))
+                        {
+                            frequancies[word] += 1;
+                        }
+                        else
+                        {
+                            frequancies[word] = 1;
+                        }
+                    }
+                    foreach (KeyValuePair<string, int> entry in frequancies)
+                    {
+                        string word = entry.Key;
+                        int frequancy = entry.Value;
+                    }
+                    var list = frequancies.OrderByDescending(x => x.Value).Take(50);
+                    foreach (var word in list)
+                    {
+                        lbTop50.Items.Add($"{word.Key} Occured: {word.Value} Times");
+                    }
+                    var list2 = frequancies.OrderByDescending(x => x.Key.Length > 6).Take(50);
+                    foreach (var word in list2)
+                    {
+                        lbTop50less6.Items.Add($"{word.Key} Occured: {word.Value} Times");
+                    }
+                    var stop = DateTime.Now;
+                    var totatlTime = stop - Start;
+                    rbTime.Text = $"Start Time: {Start.ToString("HH:mm:ss")}{Environment.NewLine}" +
+                        $"End Time: {stop.ToString("HH:mm:ss")}{Environment.NewLine}" +
+                        $"Overal Process Time: {totatlTime.TotalSeconds}";
+                    MessageBox.Show($"Processing and counts completed! " +
+                        $"{Environment.NewLine}{totatlTime.TotalSeconds} Seconds");
+                }
+                catch(IOException ex)
+                {
+                    ErrorHandler(ex);
+                }
+            }
+            catch(FileNotFoundException ex)
+            {
+                ErrorHandler(ex);
+            }
         }
     }
 }

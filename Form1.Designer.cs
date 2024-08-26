@@ -31,14 +31,14 @@
             label1 = new Label();
             txtFilePath = new TextBox();
             btnLoadFile = new Button();
-            rbSpeed = new RichTextBox();
+            rbCountLines = new RichTextBox();
             rbTime = new RichTextBox();
             btnReadAndProcessFile = new Button();
-            rtxtTop50Words = new RichTextBox();
-            rtxtTop50Wordsless6 = new RichTextBox();
             label2 = new Label();
             label3 = new Label();
             lbResults = new ListBox();
+            lbTop50 = new ListBox();
+            lbTop50less6 = new ListBox();
             SuspendLayout();
             // 
             // label1
@@ -67,15 +67,15 @@
             btnLoadFile.UseVisualStyleBackColor = true;
             btnLoadFile.Click += btnLoadFile_Click;
             // 
-            // rbSpeed
+            // rbCountLines
             // 
-            rbSpeed.Enabled = false;
-            rbSpeed.Location = new Point(12, 38);
-            rbSpeed.Name = "rbSpeed";
-            rbSpeed.ReadOnly = true;
-            rbSpeed.Size = new Size(213, 152);
-            rbSpeed.TabIndex = 3;
-            rbSpeed.Text = "";
+            rbCountLines.Enabled = false;
+            rbCountLines.Location = new Point(12, 38);
+            rbCountLines.Name = "rbCountLines";
+            rbCountLines.ReadOnly = true;
+            rbCountLines.Size = new Size(213, 152);
+            rbCountLines.TabIndex = 3;
+            rbCountLines.Text = "";
             // 
             // rbTime
             // 
@@ -96,22 +96,6 @@
             btnReadAndProcessFile.Text = "Read and Process File";
             btnReadAndProcessFile.UseVisualStyleBackColor = true;
             btnReadAndProcessFile.Click += btnReadAndProcessFile_Click;
-            // 
-            // rtxtTop50Words
-            // 
-            rtxtTop50Words.Location = new Point(618, 40);
-            rtxtTop50Words.Name = "rtxtTop50Words";
-            rtxtTop50Words.Size = new Size(196, 398);
-            rtxtTop50Words.TabIndex = 6;
-            rtxtTop50Words.Text = "";
-            // 
-            // rtxtTop50Wordsless6
-            // 
-            rtxtTop50Wordsless6.Location = new Point(842, 38);
-            rtxtTop50Wordsless6.Name = "rtxtTop50Wordsless6";
-            rtxtTop50Wordsless6.Size = new Size(189, 400);
-            rtxtTop50Wordsless6.TabIndex = 7;
-            rtxtTop50Wordsless6.Text = "";
             // 
             // label2
             // 
@@ -141,19 +125,37 @@
             lbResults.Size = new Size(590, 274);
             lbResults.TabIndex = 10;
             // 
+            // lbTop50
+            // 
+            lbTop50.FormattingEnabled = true;
+            lbTop50.ItemHeight = 15;
+            lbTop50.Location = new Point(642, 44);
+            lbTop50.Name = "lbTop50";
+            lbTop50.Size = new Size(183, 394);
+            lbTop50.TabIndex = 11;
+            // 
+            // lbTop50less6
+            // 
+            lbTop50less6.FormattingEnabled = true;
+            lbTop50less6.ItemHeight = 15;
+            lbTop50less6.Location = new Point(842, 44);
+            lbTop50less6.Name = "lbTop50less6";
+            lbTop50less6.Size = new Size(192, 394);
+            lbTop50less6.TabIndex = 12;
+            // 
             // TextFileCounter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1043, 490);
+            Controls.Add(lbTop50less6);
+            Controls.Add(lbTop50);
             Controls.Add(lbResults);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(rtxtTop50Wordsless6);
-            Controls.Add(rtxtTop50Words);
             Controls.Add(btnReadAndProcessFile);
             Controls.Add(rbTime);
-            Controls.Add(rbSpeed);
+            Controls.Add(rbCountLines);
             Controls.Add(btnLoadFile);
             Controls.Add(txtFilePath);
             Controls.Add(label1);
@@ -168,13 +170,13 @@
         private Label label1;
         private TextBox txtFilePath;
         private Button btnLoadFile;
-        private RichTextBox rbSpeed;
+        private RichTextBox rbCountLines;
         private RichTextBox rbTime;
         private Button btnReadAndProcessFile;
-        private RichTextBox rtxtTop50Words;
-        private RichTextBox rtxtTop50Wordsless6;
         private Label label2;
         private Label label3;
         private ListBox lbResults;
+        private ListBox lbTop50;
+        private ListBox lbTop50less6;
     }
 }
