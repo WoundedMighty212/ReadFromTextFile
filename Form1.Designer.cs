@@ -38,6 +38,7 @@
             rtxtTop50Wordsless6 = new RichTextBox();
             label2 = new Label();
             label3 = new Label();
+            listBox1 = new ListBox();
             SuspendLayout();
             // 
             // label1
@@ -128,11 +129,22 @@
             label3.TabIndex = 9;
             label3.Text = "Top 50 Words with lengh < 6 letters\r\n";
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(12, 196);
+            listBox1.Name = "listBox1";
+            listBox1.ScrollAlwaysVisible = true;
+            listBox1.Size = new Size(590, 274);
+            listBox1.TabIndex = 10;
+            // 
             // TextFileCounter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1043, 450);
+            ClientSize = new Size(1043, 490);
+            Controls.Add(listBox1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(rtxtTop50Wordsless6);
@@ -161,5 +173,6 @@
         private RichTextBox rtxtTop50Wordsless6;
         private Label label2;
         private Label label3;
+        private ListBox listBox1;
     }
 }
